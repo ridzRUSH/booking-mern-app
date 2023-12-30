@@ -7,18 +7,10 @@ import authRoutes from "./routes/auth";
 import cookieParser from "cookie-parser";
 import path from "path";
 
-mongose
-  .connect(process.env.MONGODB_CONNECTION_STRING as string)
-  .then(() => {
-    console.log("db conected ");
-  })
-  .catch((e) => {
-    console.log("err");
-  });
+mongose.connect(process.env.MONGODB_CONNECTION_STRING as string);
 
 const app = express();
 app.use(cookieParser());
-const port = 7000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,6 +29,6 @@ app.get("/api/test", async (req: Request, res: Response) => {
   res.send({ message: " hello " });
 });
 
-app.listen(port, () => {
-  console.log("app is up on " + port);
+app.listen(7000, () => {
+  console.log("app is up on " + 7000);
 });
