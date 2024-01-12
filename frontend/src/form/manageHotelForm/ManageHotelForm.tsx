@@ -40,6 +40,7 @@ const ManageHotelForm = ({ onSave, isLoading }: Props) => {
     formData.append("adultCount", formDataJson.adultCount.toString());
     formData.append("childCount", formDataJson.childrenCount.toString());
     formData.append("starRating", formDataJson.starRating.toString());
+    formData.append("type", formDataJson.type);
 
     formDataJson.facilities.forEach((facility, index) => {
       formData.append(`facilities[${index}]`, facility);

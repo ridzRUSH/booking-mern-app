@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import exp from "constants";
 
 import path from "path";
 
@@ -41,4 +42,17 @@ test("should allow user to add hotels", async ({ page }) => {
 
   await page.getByRole("button", { name: "save" }).click();
   await expect(page.getByText("Hotel Saved")).toBeVisible();
+});
+
+test("should display hotels ", async ({ page }) => {
+  await page.goto(`${UI_URL}my-hotel`);
+  await expect(page.getByText("test--hotel")).toBeVisible();
+  await expect(page.getByText("What is Lorem Ipsum?")).toBeVisible();
+  await expect(page.getByText("new-test-city,tttest")).toBeVisible();
+  await expect(page.getByText("Pet Friendly")).toBeVisible();
+  await expect(page.getByText("46 per night")).toBeVisible();
+  await expect(page.getByText("2 adults , 1 children")).toBeVisible();
+  await expect(page.getByText("5 star rating")).toBeVisible();
+  // await expect(page.getByRole("link", { name: "View Details" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Add Hotel" })).toBeVisible();
 });

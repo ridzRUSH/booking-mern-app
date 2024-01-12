@@ -20,7 +20,7 @@ const Header = () => {
               </Link>
               <Link
                 className="flex items-center text-white font-bold hover:bg-blue-600 px-2 py-1 rounded"
-                to="/my-hotels"
+                to="/my-hotel"
               >
                 My Hotels
               </Link>
